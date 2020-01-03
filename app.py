@@ -19,11 +19,11 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def load_model():
     global model, train_cols, linkedin_data
     # model variable refers to the global variable
-    with open('./lgb_model', 'rb') as f:
+    with open('lgb_model', 'rb') as f:
         model = pickle.load(f)
 
-    train_cols = pickle.load(open('./train_column', 'rb')).columns
-    linkedin_data = pd.read_csv('./result_gender.csv').drop('Name', axis=1)
+    train_cols = pickle.load(open('train_column', 'rb')).columns
+    linkedin_data = pd.read_csv('result_gender.csv').drop('Name', axis=1)
 
 
 def analysis(department, job_role, job_level):
