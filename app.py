@@ -26,7 +26,7 @@ def load_model():
     linkedin_data = pd.read_csv('./data/result_gender.csv').drop('Name', axis=1)
 
 
-def analysis(department:str, job_role:str, job_level:int):
+def analysis(department, job_role, job_level):
     categorical = ['Gender', 'EducationField', 'Department', 'JobRole']
     numerical = ['Education', 'Age', 'TotalWorkingYears','NumCompaniesWorked', 'JobLevel']
     scrape_data = linkedin_data.assign(Department=pd.Series(department, index=linkedin_data.index))
@@ -51,7 +51,7 @@ def analysis(department:str, job_role:str, job_level:int):
     
     # result
     for x in result:
-        max = x.argsort()[-1] #argsort 小->大的index　[-1]最大值的index
+        max = x.argsort()[-1] 
         if x[max]>0.8:
             predictions.append(max)
         elif max == 0:
