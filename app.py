@@ -83,7 +83,7 @@ def get_prediction():
     job_level = int(request.args.get('job_level'))
     print(department, job_role, job_level)
     result = analysis(department, job_role, job_level)
-    return jsonify(result)
+    return jsonify(total=linkedin_data.shape[0], recommendation=result) # number of row count
 
 
 if __name__ == '__main__':
