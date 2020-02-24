@@ -106,7 +106,7 @@ def home():
     return '200 OK'
 
 
-@app.route('/scraping', methods=['GET'])
+@app.route('/recommend', methods=['GET'])
 @cross_origin()
 def get_scraping():
     # if request.method == 'GET':
